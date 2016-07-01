@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 /**
- * Created by Administrator on 2015/10/12.
+ * @author SwordJian
  */
 public class SToolbar extends RelativeLayout implements View.OnClickListener {
 
@@ -269,23 +269,23 @@ public class SToolbar extends RelativeLayout implements View.OnClickListener {
     }
 
     public static interface OnButtonClicListener {
-        public void onClickLeft(View v);
+         void onClickLeft(View v);
 
-        public void onClickRight(View v);
+         void onClickRight(View v);
 
-        public void onClickSubTitle(View v);
+         void onClickSubTitle(View v);
     }
 
     public static interface OnLeftClickListener {
-        public void onClickLeft(View v);
+         void onClickLeft(View v);
     }
 
     public static interface OnRightClickListener {
-        public void onClickRight(View v);
+         void onClickRight(View v);
     }
 
     public static interface OnSubTitleClickListener {
-        public void onClickSubTitle(View v);
+         void onClickSubTitle(View v);
     }
 
 }

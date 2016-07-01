@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+/**
+ * @author SwordJian
+ */
 public class SStatusBar {
 
     private static SStatusBar mInstance;
