@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.github.swordjian.stoolbar.SStatusBar.SStatusBar;
 import com.github.swordjian.stoolbar.SToolbar;
 
 public class MainActivity extends AppCompatActivity
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        SStatusBar.getInstance().setTranslucentStatus(this);
     }
 
     @Override
