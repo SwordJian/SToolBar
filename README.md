@@ -18,5 +18,5 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-		com.github.SwordJian:SToolBar:1.0.2
+		com.github.SwordJian:SToolBar:1.0.3
 	}
