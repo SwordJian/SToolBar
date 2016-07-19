@@ -6,7 +6,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -97,39 +96,33 @@ public class SToolbar extends RelativeLayout implements View.OnClickListener {
 
     /**
      * @param text 如果文字太长，需要在初始化按钮之后再设置Title
-     *             Title会根据左右按钮来set Padding
-     *             Title文字会根据长度来自适应
-     *             Title最多显示两行，如果过长会显示...
      */
     public void setTitle(CharSequence text) {
         title.setText(text);
-        title.post(new Runnable() {
-            @Override
-            public void run() {
-                int padding = 0;
-                if (btn_left.getWidth() >= btn_right.getWidth()) {
-                    padding = btn_left.getWidth();
-                } else {
-                    padding = btn_right.getWidth();
-                }
-                title.setPadding(padding, 0, padding, 0);
-                title.getExtendedPaddingTop();
-                if (title.getLineCount() >= 2) {
-                    float defaultTextSize = title.getTextSize();
-                    title.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, title.getHeight(), getResources().getDisplayMetrics()));
-                    if (defaultTextSize < title.getTextSize()) {
-                        title.setTextSize(defaultTextSize);
-                    }
-                }
-            }
-        });
+//        title.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                int padding = 0;
+//                if (btn_left.getWidth() >= btn_right.getWidth()) {
+//                    padding = btn_left.getWidth();
+//                } else {
+//                    padding = btn_right.getWidth();
+//                }
+//                title.setPadding(padding, 0, padding, 0);
+//                title.getExtendedPaddingTop();
+//                if (title.getLineCount() >= 2) {
+//                    float defaultTextSize = title.getTextSize();
+//                    title.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, title.getHeight(), getResources().getDisplayMetrics()));
+//                    if (defaultTextSize < title.getTextSize()) {
+//                        title.setTextSize(defaultTextSize);
+//                    }
+//                }
+//            }
+//        });
     }
 
     /**
      * @param resid 如果文字太长，需要在初始化按钮之后再设置Title
-     *              Title会根据左右按钮来set Padding
-     *              Title文字会根据长度来自适应
-     *              Title最多显示两行，如果过长会显示...
      */
     public void setTitle(@StringRes int resid) {
         title.setText(resid);
