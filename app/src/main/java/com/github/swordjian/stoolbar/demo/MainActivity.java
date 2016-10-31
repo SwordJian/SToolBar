@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar.getV7ToolBar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        SStatusBar.getInstance().setTranslucentStatus(this);
+        SStatusBar.getInstance().setTranslucentStatus(this, findViewById(R.id.status_bar));
     }
 
     @Override
