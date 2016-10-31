@@ -1,10 +1,10 @@
 package com.github.swordjian.stoolbar;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,23 +45,32 @@ public class SToolbar extends RelativeLayout implements View.OnClickListener {
     public SToolbar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+        init2(attrs);
     }
 
     public SToolbar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
-
-        final TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
-                android.support.v7.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
+        init2(attrs);
     }
 
     private void init() {
         contentView = LayoutInflater.from(getContext()).inflate(R.layout.s_toolbar_layout, null);
         addView(contentView);
         findView();
+
         btn_left.setOnClickListener(this);
         btn_right.setOnClickListener(this);
         subtitle.setOnClickListener(this);
+    }
+
+    public void init2(AttributeSet attrs){
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.SToolbar);
+        int lSPopupTheme = a.getResourceId(R.styleable.SToolbar_SPopupTheme, 0);
+        if (lSPopupTheme > 0) {
+            v7ToolBar.setPopupTheme(lSPopupTheme);
+        }
+        a.recycle();//必须回收
     }
 
     private void findView() {
@@ -262,23 +271,23 @@ public class SToolbar extends RelativeLayout implements View.OnClickListener {
     }
 
     public static interface OnButtonClicListener {
-         void onClickLeft(View v);
+        void onClickLeft(View v);
 
-         void onClickRight(View v);
+        void onClickRight(View v);
 
-         void onClickSubTitle(View v);
+        void onClickSubTitle(View v);
     }
 
     public static interface OnLeftClickListener {
-         void onClickLeft(View v);
+        void onClickLeft(View v);
     }
 
     public static interface OnRightClickListener {
-         void onClickRight(View v);
+        void onClickRight(View v);
     }
 
     public static interface OnSubTitleClickListener {
-         void onClickSubTitle(View v);
+        void onClickSubTitle(View v);
     }
 
 }
