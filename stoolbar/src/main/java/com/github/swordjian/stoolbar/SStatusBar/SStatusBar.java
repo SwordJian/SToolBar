@@ -29,9 +29,12 @@ public class SStatusBar {
     public void setTranslucentStatus(Activity act) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if (Build.MANUFACTURER.equalsIgnoreCase("HUAWEI"))
-                {
-                    setTranslucentStatusAPI19(act);
+                if (Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        setTranslucentStatusAPI21(act);
+                    } else {
+                        setTranslucentStatusAPI19(act);
+                    }
                 } else {
                     setTranslucentStatusAPI21(act);
                 }
